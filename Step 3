@@ -1,0 +1,5 @@
+#Write the filtered data set and convert it to CSV file
+write(df4)
+Error in cat(x, file = file, sep = c(rep.int(sep, ncolumns - 1), "\n"),  : 
+  argument 1 (type 'list') cannot be handled by 'cat'
+> write.csv(df4,"C:\\Users\\TEMP\\Desktop\\R Data\\names_with_i.csv",row.names=TRUE)
