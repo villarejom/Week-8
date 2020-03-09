@@ -1,0 +1,12 @@
+#Convert the data set to a dataframe for names whos' name contains the letter i, then create a new data set with those names,
+df2 = grepl("i",df2["Name"])
+> df2 <- grepl("i",df2["Name"])
+> df3 <- grep("i",df2["Name"])
+> df3 <- grep(df2 %like% "i")
+Error in grep(df2 %like% "i") : argument "x" is missing, with no default
+> df3 <- grep("i",df2["Name"])
+> df4 <- subset(df2,grepl("i",df2$Name,ignore.case=T))
+Error in df2$Name : $ operator is invalid for atomic vectors
+> df2 = read.table("C:\\Users\\TEMP\\Desktop\\R Data\\Assignment 8 Dataset.txt",header=TRUE,sep=",")
+> df4 <- subset(df2,grepl("i",df2$Name,ignore.case=T))
+> View(df4)
