@@ -1,0 +1,141 @@
+#Import Data-set to R. (Click for instructionsPreview the document and here for the data setPreview the document)  Then, Run the commend "mean" using Sex as the category (use plyr package for this operation). Last commend in this step: write the resulting output to a file.
+library(readxl)
+Warning message:
+package ‘readxl’ was built under R version 3.6.3 
+> Week8Data <- read_excel("C:/Users/TEMP/Desktop/R Data/Week8Data.xlsx")
+> View(Week8Data)
+> install.packages("pryr")
+Installing package into ‘C:/Users/TEMP/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/pryr_0.1.4.zip'
+Content type 'application/zip' length 757931 bytes (740 KB)
+downloaded 740 KB
+
+package ‘pryr’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\TEMP\AppData\Local\Temp\Rtmpm6Finf\downloaded_packages
+> require(pryr)
+Loading required package: pryr
+Registered S3 method overwritten by 'pryr':
+  method      from
+  print.bytes Rcpp
+Warning message:
+package ‘pryr’ was built under R version 3.6.3 
+> require(boot)
+Loading required package: boot
+> install.packages("data.table")
+Installing package into ‘C:/Users/TEMP/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/data.table_1.12.8.zip'
+Content type 'application/zip' length 2276432 bytes (2.2 MB)
+downloaded 2.2 MB
+
+package ‘data.table’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\TEMP\AppData\Local\Temp\Rtmpm6Finf\downloaded_packages
+> library(data.table)
+data.table 1.12.8 using 1 threads (see ?getDTthreads).  Latest news: r-datatable.com
+
+Attaching package: ‘data.table’
+
+The following object is masked from ‘package:pryr’:
+
+    address
+
+Warning message:
+package ‘data.table’ was built under R version 3.6.3 
+> install.packages("pryr")
+Error in install.packages : Updating loaded packages
+> install.packages("pryr")
+Installing package into ‘C:/Users/TEMP/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+Warning in install.packages :
+  package ‘pryr’ is in use and will not be installed
+> require(pryr)
+> read.table("Week8Data.xlsx",header=TRUE)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'Week8Data.xlsx': No such file or directory
+> read.table("C:\Users\TEMP\Desktop\R Data\Assignment 8 Dataset.txt",header=TRUE)
+Error: '\U' used without hex digits in character string starting ""C:\U"
+> read.table("C:\\Users\\TEMP\\Desktop\\R Data\\Assignment 8 Dataset.txt",header=TRUE)
+       Name.Age.Sex.Grade
+1         Raul,25,Male,80
+2       Booker,18,Male,83
+3      Lauri,21,Female,90
+4     Leonie,21,Female,91
+5    Sherlyn,22,Female,85
+6    Mikaela,20,Female,69
+7      Raphael,23,Male,91
+8       Aiko,24,Female,97
+9   Tiffaney,21,Female,78
+10    Corina,23,Female,81
+11 Petronila,23,Female,98
+12    Alecia,20,Female,87
+13   Shemika,23,Female,97
+14    Fallon,22,Female,90
+15   Deloris,21,Female,67
+16    Randee,23,Female,91
+17     Eboni,20,Female,84
+18   Delfina,19,Female,93
+19 Ernestina,19,Female,93
+20        Milo,19,Male,67
+> StudentAverage = ddply(Student,"Sex",transform,Grade.Average=mean(Grade))
+Error in ddply(Student, "Sex", transform, Grade.Average = mean(Grade)) : 
+  could not find function "ddply"
+> library(plyr)
+> StudentAverage = ddply(Student,"Sex",transform,Grade.Average=mean(Grade))
+Error in empty(.data) : object 'Student' not found
+> read.table("C:\\Users\\TEMP\\Desktop\\R Data\\Assignment 8 Dataset.txt",header=TRUE)
+       Name.Age.Sex.Grade
+1         Raul,25,Male,80
+2       Booker,18,Male,83
+3      Lauri,21,Female,90
+4     Leonie,21,Female,91
+5    Sherlyn,22,Female,85
+6    Mikaela,20,Female,69
+7      Raphael,23,Male,91
+8       Aiko,24,Female,97
+9   Tiffaney,21,Female,78
+10    Corina,23,Female,81
+11 Petronila,23,Female,98
+12    Alecia,20,Female,87
+13   Shemika,23,Female,97
+14    Fallon,22,Female,90
+15   Deloris,21,Female,67
+16    Randee,23,Female,91
+17     Eboni,20,Female,84
+18   Delfina,19,Female,93
+19 Ernestina,19,Female,93
+20        Milo,19,Male,67
+> StudentAverage = ddply(Student,"Sex",transform,Grade.Average=mean(Grade))
+Error in empty(.data) : object 'Student' not found
+> df = read.table("C:\\Users\\TEMP\\Desktop\\R Data\\Assignment 8 Dataset.txt",header=TRUE)
+> StudentAverage = ddply(df,"Sex",transform,Grade.Average=mean(Grade))
+Error in FUN(X[[i]], ...) : object 'Sex' not found
+> df = read.table("C:\\Users\\TEMP\\Desktop\\R Data\\Assignment 8 Dataset.txt",header=TRUE,sep=",")
+> df2 = read.table("C:\\Users\\TEMP\\Desktop\\R Data\\Assignment 8 Dataset.txt",header=TRUE,sep=",")
+> View(df2)
+> View(df)
+> View(df2)
+> StudentAverage = ddply(df2,"Sex",transform,Grade.Average=mean(Grade))
+> sex=df2$Sex
+> mean(sex)
+[1] NA
+Warning message:
+In mean.default(sex) : argument is not numeric or logical: returning NA
+> print StudentAverage
+Error: unexpected symbol in "print StudentAverage"
+> sex=df2$Sex
+> mean(sex)
+[1] NA
+Warning message:
+In mean.default(sex) : argument is not numeric or logical: returning NA
+> mean(Sex)
+Error in mean(Sex) : object 'Sex' not found
+> View(StudentAverage)
+> write.table(students_gendered_mean,"Students_Gendered_Mean")
+Error in is.data.frame(x) : object 'students_gendered_mean' not found
